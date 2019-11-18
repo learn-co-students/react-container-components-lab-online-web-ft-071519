@@ -24,7 +24,8 @@ class SearchableMovieReviewsContainer extends Component {
     })
   }
 
-  handleSubmit() {
+  handleSubmit = (e) => {
+    e.preventDefault()
     let newURL = URL + `&query=` + this.state.searchTerm
     fetch(newURL)
       .then(response => response.json())
