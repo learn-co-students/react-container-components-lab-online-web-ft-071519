@@ -1,13 +1,40 @@
-// import React, { Component } from 'react';
-// import 'isomorphic-fetch';
-// import MovieReviews from './MovieReviews'
+import React, { Component } from 'react';
+import 'isomorphic-fetch';
+import MovieReviews from './MovieReviews'
+import Search from './Search'
 
-// const NYT_API_KEY = 'dGpQ5OmGP2SgfvZimlpCUoF4iOag9qzZ';
-// const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
-//             + `api-key=${NYT_API_KEY}`;
+class SearchableMovieReviewsContainer extends Component {
 
-// // Code SearchableMovieReviewsContainer Here
+    state = {
+        reviews: [],
+        searchword: ""
+    }
+    
+    handleChange = (event) =>  {
+        this.setState({
+            searchword: event.target.value
+        })
+    }
 
-// // const test = console.log("test")
+    handleSubmit = (event) => {
+        event.preventDefault()
+        fetch(URL + `&query=${this.state.searchword}`)
+            .then(response => response.json())
+            .then(reviewData => 
+                this.setState({reviews: reviewData.results})
+            )
+    }
 
-// export {NYT_API_KEY, test} 
+    render(){
+        return(
+            <div>
+                <Search submitHandling={this.handleSubmit} changeHandling={this.handleChange}/>
+                <div className="searchable-movie-reviews">
+                <MovieReviews movieReviews={this.state.reviews}/>
+                </div>
+            </div>
+        )
+    }
+}
+
+export default SearchableMovieReviewsContainer
