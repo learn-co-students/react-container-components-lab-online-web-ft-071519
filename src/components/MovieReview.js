@@ -1,8 +1,8 @@
 import React from "react";
 
-const MovieReview =({title, summary, key}) => {
+const MovieReview =({title, summary}) => {
     return(
-        <div className="movie-review" key={key}>
+        <div className="movie-review">
         <h3>{title}</h3>
         <p>{summary}</p>
         </div>

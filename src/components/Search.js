@@ -1,8 +1,8 @@
 import React from "react";
 
-const Search = ({submithandling, changeHandling}) => {
+const Search = ({submitHandling, changeHandling}) => {
     return (
-    <form onSubmit={event => submithandling(event)}>
+    <form onSubmit={event => submitHandling(event)}>
     <input onChange={event => changeHandling(event)} type="text"></input>
     <button type="submit">Search</button>
     </form>)

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
-// import SearchableMovieReviewsContainer from './MovieReviews'
+
 
 
 class LatestMovieReviewsContainer extends Component {
@@ -27,7 +27,6 @@ class LatestMovieReviewsContainer extends Component {
         console.log(this.state.reviews)
         return(
             <div className="latest-movie-reviews">
-            {/* <SearchableMovieReviewsContainer serchablemovies={this.state.reviews}/> */}
             <MovieReviews movieReviews={this.state.reviews}/>
             </div>
         )}
