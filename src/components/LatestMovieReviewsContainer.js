@@ -14,7 +14,6 @@ class LatestMovieReviewsContainer extends Component {
         const NYT_API_KEY = 'MJJpUaH9EMiGNiaGAFfuFtVTf33ufSmG';
         const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
                 + `api-key=${NYT_API_KEY}`;
-        console.log(URL)
         fetch(URL)
         .then(resp => resp.json())
         .then(reviewData => this.setState({
